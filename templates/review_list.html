@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} ^_^ List of reviews ^_^ {% endblock title %}
+
+{% block content %}
+    {% for review in review_list %}
+        <div class="card">
+            <div class="card-header">
+                <span class="font-weight-bold">{{review.film_name}}</span> &middot;
+                <span class="text-muted">{{review.author}} | {{review.date}}</span>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <p>{{review.body}}</p>
+
+            <a href="{% url 'review_edit' review.pk %}">Edit</a> 
+            | 
+            <a href="{% url 'review_delete' review.pk %}">Delete</a>
+        </div>
+
+        <div class="card-footer text-center text-muted">
+            {% for comment in review.comments.all %}
+            <p>
+                <span class "font-weight-bold">{{commment.author}}  &middot;</span>
+                {{comment}}
+            </p>
+        {% endfor %}
+
+        </div>
+        <br/>
+    {% endfor %}
+
+    {% endblock content %}
+
+
+
+

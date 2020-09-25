@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} ^_^ Current Review ^_^ {% endblock title %}
+
+{% block content %}
+    <div class="article-entry">
+        <h2> {{review.film_name}} </h2>
+        <p>by {{review.author}} | {{review.date}}</p>
+        <p>{{review.actors}}</p>
+        <p>{{review.body}}</p>
+    </div>
+
+    <p>
+        <a href="{% url 'review_edit' review.pk %}"> Edit </a>
+
+        <a href="{% url 'review_delete' review.pk %}"> Delete </a>
+
+    </p>
+
+    <p>
+        back to <a href="{% url 'review_list' %}"> All reviews </a>
+    </p>
+    
+
+
+{% endblock content %}

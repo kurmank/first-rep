@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block title %} ^_^ Home page ^_^ {% endblock title %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Django task reviews</h1>
+        <p class="lead">First Django projeck 130 min</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'review_list' %}" role="button">
+                View all reviews
+            </a>
+        </p>
+    </div>
+
+{% endblock content %}
